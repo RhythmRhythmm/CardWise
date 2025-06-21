@@ -1,0 +1,54 @@
+/* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Basic styling for body */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex;
+            flex-direction: column; /* Stack header and main content */
+            background: linear-gradient(to bottom right, var(--tw-gradient-stops));
+            --tw-gradient-from: #1A4D2E var(--tw-gradient-from-position); /* darkGreen */
+            --tw-gradient-to: #8BC34A var(--tw-gradient-to-position);     /* limeGreen */
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+        }
+
+        /* Translucent effects */
+        .translucent-card-bg {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            backdrop-filter: blur(8px); /* More blur for a pronounced effect */
+        }
+        .translucent-success {
+            background-color: rgba(139, 195, 74, 0.8); /* Lime green with transparency */
+            border-color: #8BC34A; /* Consistent border */
+        }
+        .translucent-danger {
+            background-color: rgba(244, 67, 54, 0.8); /* Red with transparency */
+            border-color: #F44336; /* Consistent border */
+        }
+        .gradient-button {
+            background-image: linear-gradient(to right, #4CAF50, #8BC34A); /* Green gradient */
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .gradient-button:hover {
+            background-image: linear-gradient(to right, #8BC34A, #4CAF50);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }

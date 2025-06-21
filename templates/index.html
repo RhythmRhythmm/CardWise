@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardWise - Credit Card Approval</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkGreen: '#1A4D2E',       // A deep, rich green
+                        limeGreen: '#8BC34A',       // A vibrant, bright green
+                        yellowAccent: '#FFC107',    // A warm yellow for accents
+                        neutralGray: '#4B5563',     // Dark gray for text
+                        dangerRed: '#F44336',       // For rejection, a strong red
+                        lightBgGreen: '#EEF6EC',    // Very light green for backgrounds
+                        headerGreen: '#F0FDF4',     // Lighter green for header bg
+                        gradientStart: '#1A4D2E',   // Dark green for body gradient start
+                        gradientEnd: '#8BC34A',     // Lime green for body gradient end
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-darkGreen to-limeGreen">
+
+    <!-- Header -->
+    <header class="w-full bg-headerGreen py-4 shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="text-2xl font-bold text-darkGreen">CardWise</div>
+            <div class="space-x-4">
+                <button onclick="showPage('home')" class="text-neutralGray hover:text-darkGreen font-medium py-2 px-4 rounded-lg transition duration-200">Home</button>
+                <button onclick="showPage('predict')" class="text-neutralGray hover:text-darkGreen font-medium py-2 px-4 rounded-lg transition duration-200">Predict</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow flex items-center justify-center py-10 px-4 sm:px-6 lg:px-8">
+        <!-- Home Page Content -->
+        <div id="homePage" class="w-full max-w-5xl bg-white p-8 md:p-12 rounded-xl shadow-2xl border border-gray-200 translucent-card-bg">
+            <div class="text-center mb-10">
+                <h1 class="text-5xl font-bold text-darkGreen mb-4">Welcome to <span class="text-limeGreen">CardWise</span></h1>
+                <p class="text-xl text-neutralGray mb-8 leading-relaxed">
+                    Your smart assistant for credit card approval predictions. Leveraging advanced ML models for intuitive insights into your eligibility.
+                </p>
+                <button onclick="showPage('predict')" class="gradient-button text-xl px-8 py-4 rounded-full shadow-lg font-semibold transform hover:scale-105">
+                    Start Your Prediction Now!
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-lightBgGreen p-6 rounded-lg shadow-md border border-limeGreen text-center">
+                    <div class="text-4xl font-bold text-limeGreen mb-4">Fast</div>
+                    <h3 class="text-xl font-semibold text-darkGreen mb-2">Instant Predictions</h3>
+                    <p class="text-neutralGray">Get immediate results on your credit card approval chances.</p>
+                </div>
+                <div class="bg-lightBgGreen p-6 rounded-lg shadow-md border border-limeGreen text-center">
+                    <div class="text-4xl font-bold text-limeGreen mb-4">Smart</div>
+                    <h3 class="text-xl font-semibold text-darkGreen mb-2">Advanced ML Analysis</h3>
+                    <p class="text-neutralGray">Our sophisticated ML models analyze key factors to provide accurate insights.</p>
+                </div>
+                <div class="bg-lightBgGreen p-6 rounded-lg shadow-md border border-limeGreen text-center">
+                    <div class="text-4xl font-bold text-limeGreen mb-4">Secure</div>
+                    <h3 class="text-xl font-semibold text-darkGreen mb-2">Secure & Private</h3>
+                    <p class="text-neutralGray">Your data is handled with the utmost care and privacy.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h2 class="text-3xl font-bold text-darkGreen mb-6 border-b pb-2 border-gray-300 inline-block">How It Works</h2>
+                <div class="text-neutralGray text-lg space-y-4 max-w-2xl mx-auto">
+                    <p>1. **Submit Your Details:** Fill in a few details about your financial and personal situation.</p>
+                    <p>2. **ML Model Analyzes:** Our powerful machine learning model processes your information.</p>
+                    <p>3. **Get Instant Result:** Receive an immediate prediction on your credit card application.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Predict Page (Credit Card Application Form) Content -->
+        <div id="predictPage" class="w-full max-w-4xl bg-white p-8 md:p-12 rounded-xl shadow-2xl border border-gray-200 translucent-card-bg hidden">
+            <h1 class="text-4xl font-bold text-center mb-8 text-darkGreen">Credit Card Application</h1>
+            <p class="text-center text-lg text-neutralGray mb-10">
+                Please fill out the form below to determine your credit card approval status.
+                <br class="hidden md:block">
+                <span class="text-sm text-gray-500">
+                    (This is a simulated model for demonstration purposes. A real application would use a backend ML model.)
+                </span>
+            </p>
+
+            <form id="creditApplicationForm" class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+
+                <!-- Personal Information -->
+                <div class="md:col-span-2">
+                    <h2 class="text-2xl font-semibold mb-4 text-darkGreen border-b pb-2 border-gray-300">Personal Information</h2>
+                </div>
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+                    <input type="number" id="age" name="age" min="18" max="100" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="dependents" class="block text-sm font-medium text-gray-700 mb-1">Number of Dependents</label>
+                    <input type="number" id="dependents" name="dependents" min="0" max="10" value="0" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+
+                <!-- Financial Information -->
+                <div class="md:col-span-2 mt-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-darkGreen border-b pb-2 border-gray-300">Financial Information</h2>
+                </div>
+                <div>
+                    <label for="income" class="block text-sm font-medium text-gray-700 mb-1">Annual Income ($)</label>
+                    <input type="number" id="income" name="income" min="0" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="creditScore" class="block text-sm font-medium text-gray-700 mb-1">Credit Score (300-850)</label>
+                    <input type="number" id="creditScore" name="creditScore" min="300" max="850" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="monthlyDebt" class="block text-sm font-medium text-gray-700 mb-1">Total Monthly Debt Payments ($)</label>
+                    <input type="number" id="monthlyDebt" name="monthlyDebt" min="0" value="0" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="employmentStatus" class="block text-sm font-medium text-gray-700 mb-1">Employment Status</label>
+                    <select id="employmentStatus" name="employmentStatus" required
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                        <option value="">Select Status</option>
+                        <option value="employed">Employed</option>
+                        <option value="selfEmployed">Self-Employed</option>
+                        <option value="unemployed">Unemployed</option>
+                        <option value="retired">Retired</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="employmentYears" class="block text-sm font-medium text-gray-700 mb-1">Years at Current Job</label>
+                    <input type="number" id="employmentYears" name="employmentYears" min="0" max="60" value="0" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+                <div>
+                    <label for="housingStatus" class="block text-sm font-medium text-gray-700 mb-1">Housing Status</label>
+                    <select id="housingStatus" name="housingStatus" required
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-400">
+                        <option value="">Select Status</option>
+                        <option value="own">Own</option>
+                        <option value="rent">Rent</option>
+                        <option value="mortgage">Mortgage</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="monthlyHousingCost" class="block text-sm font-medium text-gray-700 mb-1">Monthly Rent/Mortgage ($)</label>
+                    <input type="number" id="monthlyHousingCost" name="monthlyHousingCost" min="0" value="0" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                </div>
+
+                <!-- Loan History -->
+                <div class="md:col-span-2 mt-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-darkGreen border-b pb-2 border-gray-300">Loan History</h2>
+                </div>
+                <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="hasStudentLoan" name="hasStudentLoan"
+                               class="h-4 w-4 text-limeGreen border-gray-300 rounded focus:ring-limeGreen">
+                        <label for="hasStudentLoan" class="ml-2 block text-sm font-medium text-gray-700">Has Student Loan?</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="hasAutoLoan" name="hasAutoLoan"
+                               class="h-4 w-4 text-limeGreen border-gray-300 rounded focus:ring-limeGreen">
+                        <label for="hasAutoLoan" class="ml-2 block text-sm font-medium text-gray-700">Has Auto Loan?</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="hasMortgage" name="hasMortgage"
+                               class="h-4 w-4 text-limeGreen border-gray-300 rounded focus:ring-limeGreen">
+                        <label for="hasMortgage" class="ml-2 block text-sm font-medium text-gray-700">Has Mortgage?</label>
+                    </div>
+                    <div>
+                        <label for="loanHistoryCount" class="block text-sm font-medium text-gray-700 mb-1">Number of Open Loans (excluding mortgage)</label>
+                        <input type="number" id="loanHistoryCount" name="loanHistoryCount" min="0" value="0" required
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-limeGreen focus:border-limeGreen sm:text-sm transition duration-200 ease-in-out hover:border-gray-400">
+                    </div>
+                </div>
+
+                <!-- Submit and Reset Buttons -->
+                <div class="md:col-span-2 flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <button type="submit"
+                            class="w-full sm:w-auto px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-lg text-white bg-darkGreen hover:bg-limeGreen focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-limeGreen transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+                        Check Approval Status
+                    </button>
+                    <button type="reset" id="resetButton"
+                            class="w-full sm:w-auto px-6 py-3 border border-gray-300 text-base font-medium rounded-md shadow-sm text-neutralGray bg-yellowAccent hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellowAccent transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+                        Clear Form
+                    </button>
+                </div>
+            </form>
+
+            <!-- Result Display Area -->
+            <div id="resultContainer" class="mt-12 p-6 rounded-xl text-center hidden transition-all duration-500 ease-in-out transform scale-95 opacity-0 border-4">
+                <h3 id="resultTitle" class="text-3xl font-bold mb-4"></h3>
+                <p id="resultDetails" class="text-lg"></p>
+                <button id="closeResultButton" class="mt-6 px-6 py-3 rounded-md shadow-md text-white bg-neutralGray hover:bg-gray-700 transition duration-300 ease-in-out">
+                    Close Result
+                </button>
+            </div>
+        </div>
+
+        <!-- Custom Alert/Message Box -->
+        <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+                <h4 id="messageBoxTitle" class="text-xl font-bold mb-4 text-darkGreen"></h4>
+                <p id="messageBoxContent" class="text-gray-700 mb-6"></p>
+                <button id="messageBoxClose" class="px-6 py-2 bg-darkGreen text-white rounded-md hover:bg-limeGreen transition duration-200">OK</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
