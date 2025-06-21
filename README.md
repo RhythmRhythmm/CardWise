@@ -31,7 +31,3 @@ After you submit a form with some personal and financial information, the websit
  <img alt="HOME PAGE" src="YOUR-DEFAULT-IMAGE">
 </picture>
 
-<picture>
-<a href="https://ibb.co/cSs4JXYX"><img src="https://i.ibb.co/S4ZFN7f7/Screenshot-2025-06-21-223547.png" alt="Screenshot-2025-06-21-223547" border="0" /></a>
-  <img alt="HOME PAGE" src="YOUR-DEFAULT-IMAGE">
-</picture>
