@@ -1,7 +1,6 @@
  <h1> CardWise: Smart Credit Card Approval Predictor </h1>
-CardWise is a website that helps you find out if you might get approved for a credit card.
 
-After you submit a form with some personal and financial information, the website employs a "smart system"—a sophisticated calculator that has learned from numerous previous examples—to determine your chances of being accepted or rejected right away and provide a brief explanation of the decision.
+CardWise is an interactive web application that predicts credit card approval status. It uses an intelligent machine learning model to assess user-provided financial and personal data, offering instant and clear feedback on eligibility. This project demonstrates a full-stack ML application, integrating a dynamic frontend with a Python-based prediction service.
 
 <picture>
  <a href="https://ibb.co/twS41djC"><img src="https://i.ibb.co/35w7PJ6h/Screenshot-2025-06-21-223426.png" alt="Screenshot-2025-06-21-223426" border="0" /></a>
@@ -30,4 +29,61 @@ After you submit a form with some personal and financial information, the websit
  <a href="https://ibb.co/czg0ZSb"><img src="https://i.ibb.co/Tzv67xK/Screenshot-2025-06-21-223536.png" alt="Screenshot-2025-06-21-223536" border="0" /></a>
  <img alt="HOME PAGE" src="YOUR-DEFAULT-IMAGE">
 </picture>
+
+## Tech Stack
+
+* **Frontend:**
+    * **HTML5:** Structure.
+    * **CSS3:** Styling, utilizing [Tailwind CSS](https://tailwindcss.com/).
+    * **JavaScript (Vanilla JS):** Interactivity, validation, and communication.
+* **Backend (Conceptual ML Service):**
+    * **Python 3.x:** Core language for ML logic.
+    * **scikit-learn:** Implements the **Random Forest Classifier** algorithm.
+    * **pandas:** Data preprocessing.
+    * **joblib:** Model saving/loading.
+    * **Flask & Flask-CORS:** (Conceptual) HTTP service to expose the ML model.
+
+To get CardWise running locally:
+
+### Prerequisites
+
+* Python 3.x (with `pip`)
+* `git`
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/RhythmRhythmm/CardWise.git](https://github.com/RhythmRhythmm/CardWise.git)
+    cd CardWise
+    ```
+2.  **Create & activate a virtual environment:**
+    ```bash
+    python -m venv venv
+    # Windows: .\venv\Scripts\activate
+    # macOS/Linux: source venv/bin/activate
+    ```
+3.  **Install dependencies (create `requirements.txt` first if missing):**
+    ```
+    Flask==2.3.2
+    Flask-Cors==3.0.10
+    joblib==1.3.2
+    pandas==2.0.3
+    scikit-learn==1.3.0
+    numpy==1.25.2
+    ```
+    Then: `pip install -r requirements.txt`
+4.  **Train the ML Model:**
+    ```bash
+    python ml_model_training.py
+    ```
+    This creates `credit_approval_model.joblib`.
+5.  **Run the Backend Service:**
+    ```bash
+    python app.py
+    ```
+    The server typically starts on `http://127.0.0.1:5000/`.
+6.  **Open Frontend:**
+    Open `index.html` in your web browser.
+
 
