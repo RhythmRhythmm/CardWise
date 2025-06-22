@@ -1,6 +1,6 @@
  <h1> CardWise: Smart Credit Card Approval Predictor </h1>
 
-CardWise is an interactive web application that predicts credit card approval status. It uses an intelligent machine learning model to assess user-provided financial and personal data, offering instant and clear feedback on eligibility. This project demonstrates a full-stack ML application, integrating a dynamic frontend with a Python-based prediction service.
+CardWise is an interactive web application that predicts credit card approval status. It uses an intelligent machine learning model to assess user-provided financial and personal data, offering instant and clear feedback on eligibility. This project demonstrates a ML application, integrating a dynamic frontend with a Python-based prediction service.
 
 <picture>
  <a href="https://ibb.co/twS41djC"><img src="https://i.ibb.co/35w7PJ6h/Screenshot-2025-06-21-223426.png" alt="Screenshot-2025-06-21-223426" border="0" /></a>
