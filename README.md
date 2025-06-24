@@ -35,7 +35,7 @@ CardWise is an interactive web application that predicts credit card approval st
 * **Frontend:**
     * **HTML5:** Structure.
     * **CSS3:** Styling, utilizing [Tailwind CSS](https://tailwindcss.com/).
-    * **JavaScript (Vanilla JS):** Interactivity, validation, and communication.
+    * **JavaScript :** Interactivity, validation, and communication.
 * **Backend (Conceptual ML Service):**
     * **Python 3.x:** Core language for ML logic.
     * **scikit-learn:** Implements the **Random Forest Classifier** algorithm.
